@@ -46,4 +46,6 @@ Code is MIT-licensed. Figures and aggregated results are CC BY-NC-SA 4.0. Detail
 This is an independent, non-commercial portfolio project. It is not affiliated with or endorsed by Eesti Energia AS, Enefit or Kaggle.
 
 ## Author
-_Your name · LinkedIn · email_
+_Farzan Momayezi 
+· [Linkedin](www.linkedin.com/in/farzan-momayezi) 
+· [Email](Farzanmomayezi@gmail.com)_
