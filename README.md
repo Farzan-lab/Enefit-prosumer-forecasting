@@ -40,4 +40,4 @@ _Coming soon._
 Python (pandas, LightGBM, scikit-learn) · DuckDB / SQL · matplotlib / plotly
 
 ## Author
-_Your name · LinkedIn · email_
+_Farzan Momayezi · LinkedIn · Farzanmomayezi@gmail.com_
