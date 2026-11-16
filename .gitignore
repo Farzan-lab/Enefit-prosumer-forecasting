@@ -5,6 +5,18 @@ data/processed/*
 !data/processed/.gitkeep
 *.duckdb
 *.duckdb.wal
+*.csv
+*.parquet
+*.zip
+
+# Trained models (derived from licensed data: not published)
+models/
+*.pkl
+*.joblib
+*.lgb
+
+# Notebook outputs may contain raw rows: keep notebooks as .py, or clear outputs
+*.ipynb
 
 # Python
 __pycache__/

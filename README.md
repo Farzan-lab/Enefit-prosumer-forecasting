@@ -39,5 +39,11 @@ _Coming soon._
 ## Tech Stack
 Python (pandas, LightGBM, scikit-learn) · DuckDB / SQL · matplotlib / plotly
 
+## Data Licence & Disclaimer
+Data: **Eesti Energia AS / Kaggle**, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) and the competition rules. **No competition data is redistributed in this repository.**
+Code is MIT-licensed. Figures and aggregated results are CC BY-NC-SA 4.0. Details: [`docs/DATA_LICENSE.md`](docs/DATA_LICENSE.md).
+
+This is an independent, non-commercial portfolio project. It is not affiliated with or endorsed by Eesti Energia AS, Enefit or Kaggle.
+
 ## Author
 _Your name · LinkedIn · email_
