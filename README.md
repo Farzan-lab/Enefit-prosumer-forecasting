@@ -16,16 +16,30 @@ Energy retailers must forecast, hour by hour, how much electricity their **prosu
 Data is **not** included in this repo. To reproduce:
 1. Accept the competition rules on Kaggle and download the data.
 2. Unzip the CSV files into `data/raw/`.
-3. Run `python src/build_database.py`.
+3. Create an Azure SQL Database (the free offer is enough), install **ODBC Driver 18 for SQL Server**, then copy `.env.example` to `.env` and fill in your connection details.
+4. `pip install -r requirements.txt`
+5. `python src/test_connection.py`, then `python src/load_to_azure.py`
+
+*No cloud account?* `python src/build_database.py` builds a local DuckDB copy instead (queries in `sql/duckdb/`).
+
+## Architecture
+```
+Kaggle CSVs ──► Python (pandas, chunked) ──► Azure SQL Database ──► SQL feature views
+                                                     │
+                                   ┌─────────────────┴─────────────────┐
+                                   ▼                                   ▼
+                        Python (SQLAlchemy/pyodbc)              Power BI dashboard
+                        EDA · LightGBM · SHAP                   (aggregated data)
+```
 
 ## Project Structure
 ```
 ├── data/
 │   ├── raw/              # Kaggle CSVs (git-ignored)
-│   └── processed/        # DuckDB database & derived tables (git-ignored)
+│   └── processed/        # optional local DuckDB copy (git-ignored)
 ├── docs/                 # Problem statement, methodology notes
 ├── notebooks/            # Analysis notebooks, numbered in order
-├── sql/                  # SQL queries (data quality, feature tables)
+├── sql/                  # T-SQL queries for Azure SQL (sql/duckdb/ = local version)
 ├── src/                  # Reusable Python code
 └── reports/figures/      # Charts used in README / article
 ```
@@ -37,7 +51,7 @@ Data is **not** included in this repo. To reproduce:
 _Coming soon._
 
 ## Tech Stack
-Python (pandas, LightGBM, scikit-learn) · DuckDB / SQL · matplotlib / plotly
+Python (pandas, SQLAlchemy, pyodbc, LightGBM, scikit-learn) · Azure SQL Database (T-SQL) · Power BI · DuckDB (local fallback) · matplotlib / plotly
 
 ## Data Licence & Disclaimer
 Data: **Eesti Energia AS / Kaggle**, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) and the competition rules. **No competition data is redistributed in this repository.**
@@ -46,6 +60,4 @@ Code is MIT-licensed. Figures and aggregated results are CC BY-NC-SA 4.0. Detail
 This is an independent, non-commercial portfolio project. It is not affiliated with or endorsed by Eesti Energia AS, Enefit or Kaggle.
 
 ## Author
-_Farzan Momayezi 
-· [Linkedin](www.linkedin.com/in/farzan-momayezi) 
-· [Email](Farzanmomayezi@gmail.com)_
+_Your name · LinkedIn · email_

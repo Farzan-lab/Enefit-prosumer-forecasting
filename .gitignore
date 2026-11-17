@@ -18,6 +18,9 @@ models/
 # Notebook outputs may contain raw rows: keep notebooks as .py, or clear outputs
 *.ipynb
 
+# Secrets
+.env
+
 # Python
 __pycache__/
 *.pyc
